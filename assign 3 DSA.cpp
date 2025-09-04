@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string.h>
 using namespace std;
 /* QUESTION 1.
 int main(){
@@ -157,14 +158,14 @@ int main(){
 	return 0;
 }*/
 
-int main(){
+/*int main(){
 	cout<<"Enter how many strings you want: ";
 	int n;
 	cin>>n;
-	cout<<"Enter how many elements you want: ";
-	int e;
-	cin>>e;
-	char stack[n][e];
+	//cout<<"Enter how many elements you want: ";
+	//int e;
+	//cin>>e;
+	char stack[n][10];
 	int menu;
 	int top=0;
 	int i;
@@ -236,4 +237,55 @@ int main(){
 	
 	
 	return 0;
+}*/
+/*
+Question 3.
+int main(){
+	string n;
+	int right=0;
+	int left=0;
+	
+	cout<<"Enter your expression: ";
+	getline(cin,n);
+	for(int i=0;i<n.length();i++){
+		if(n[i]=='('){
+			right++;
+		}
+		if(n[i]==')'){
+			left++;
+		}
+			
+	}
+	if(right==left){
+		cout<<"All the parenthesis are closed!";
+	}
+	else{
+		cout<<"all the parenthesis aren't closed!";
+	}
+}*/
+
+int main(){
+	cout<<"Enter the expression: ";
+	string n;
+	getline(cin,n);
+	string stack;
+	
+	int i;
+	for(i=0;i<n.length();i++){
+		if(isalnum(n[i])){
+			stack=stack+n[i];
+		}
+		if(n[i]=='+'||n[i]=='-'||n[i]=='/'||n[i]=='*'){
+			stack=stack+n[i+1];
+			stack=stack+n[i];
+			i++;
+		}
+	}
+	cout<<stack;
+	
+	
+	return 0;
 }
+
+
+
