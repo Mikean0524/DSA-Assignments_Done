@@ -264,28 +264,98 @@ int main(){
 	}
 }*/
 
-int main(){
-	cout<<"Enter the expression: ";
-	string n;
-	getline(cin,n);
-	string stack;
-	
-	int i;
-	for(i=0;i<n.length();i++){
-		if(isalnum(n[i])){
-			stack=stack+n[i];
-		}
-		if(n[i]=='+'||n[i]=='-'||n[i]=='/'||n[i]=='*'){
-			stack=stack+n[i+1];
-			stack=stack+n[i];
-			i++;
-		}
-	}
-	cout<<stack;
-	
-	
-	return 0;
+/*
+Question 5.
+const int n = 10;
+int stack[n]; 
+int top = 0;
+
+void display() {
+    if (top == 0) {
+        cout << "STACK IS EMPTY\n";
+    } else {
+        for (int i = top - 1; i >= 0; i--) {
+            cout << stack[i] << " ";
+        }
+        cout << endl;
+    }
 }
 
+void push(int a) {
+    if (top == n) {
+        cout << "STACK IS FULL!\n";
+    } else {
+        stack[top] = a;
+        top++;
+    }
+}
 
+int pop() {
+    if (top == 0) {
+        cout << "STACK IS EMPTY\n";
+        return -1;
+    } else {
+        top--;
+        return stack[top];
+    }
+}
+
+void peek() {
+    if (top == 0) {
+        cout << "STACK IS EMPTY\n";
+    } else {
+        cout << stack[top - 1] << endl;
+    }
+}
+
+int main() {
+    cout << "Enter the postfix expression: ";
+    string exp;
+    getline(cin, exp);
+
+    for (int i = 0; i < exp.length(); i++) {
+        char c= exp[i];
+
+        if (isdigit(c)) {
+            push(c- '0');
+        } else if (c == '+' || c == '-' || c == '/' || c == '*') {
+            int a = pop();
+            int b = pop();
+            int result;
+
+            if (a == -1 || b == -1) {
+                cout << "Invalid expression: not enough operands for operator " << c << endl;
+                return 1;
+            }
+
+            switch (c) {
+                case '+':
+                    result = b + a;
+                    break;
+                case '-':
+                    result = b - a;
+                    break;
+                case '/':
+                    if (a == 0) {
+                        cout << "Error: Division by zero." << endl;
+                        return 1;
+                    }
+                    result = b / a;
+                    break;
+                case '*':
+                    result = b * a;
+                    break;
+            }
+            push(result);
+        }
+    }
+    
+    if (top == 1) {
+        cout << "Result: " << pop() << endl;
+    } else {
+        cout << "Invalid expression: too many operands or not enough operators." << endl;
+    }
+
+    return 0;
+}*/
 
