@@ -16,8 +16,8 @@ int main(){
 	cin>>infix;
 	string postfix="";
 	stack<char> s;
-	s.push('(';
-	postfix=postfix+")";
+	s.push('(');
+	infix+=")";
 	for(char c:infix){
 		if(c=='('){
 			s.push(c);
@@ -45,3 +45,4 @@ int main(){
 	cout<<"Postfix: "<<postfix;
 	return 0;
 }
+
